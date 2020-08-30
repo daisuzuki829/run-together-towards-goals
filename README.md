@@ -25,6 +25,9 @@ https://run-together-towards-goals.herokuapp.com/
 
     docker-compose up -d
 
+4. 
+
+    http://localhost:8080/
 
 
 ## ❓About app
