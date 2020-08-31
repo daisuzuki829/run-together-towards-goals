@@ -152,6 +152,7 @@ func Handler(dbConn *gorm.DB) {
 		port = "8080"
 	}
 	if err := r.Run(":" + port); err != nil {
+		// TODO portが既に使われているときの対応
 		log.Println(err.Error())
 		os.Exit(1)
 	}

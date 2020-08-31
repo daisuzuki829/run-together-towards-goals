@@ -19,6 +19,7 @@ func NoticeForgotPass(text string) {
 	}
 }
 
+// TODO herokuでのenvの書き方？を調べる
 const (
 	domain = "https://hooks.slack.com/services/"
 	adminWebHock = "T013G7QJRJ5/B0188DNEB8W/DSSIgi86iOq1VkSoT89Nd9G6"
