@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>My Page</title>
@@ -8,283 +9,277 @@
         @import url("/assets/css/from.css");
     </style>
 </head>
+
 <body>
 
-{{ template "header" }}
+    {{ template "header" }}
 
-<form method="post" action="/user/edit_my_page">
-    <div class="form-inner">
-        <h1>My Page</h1>
-        <h2>My Profile</h2>
-        <div class="form-footer">
-            {{ if .err }}
-                {{ range $i, $v := .err }}
-                    <p class="error">{{ $v }}</p>
-                {{ end }}
-            {{end}}
-        </div>
-        <div>
-            <div class="underline">
-                <input type="text" name="nickname" value="{{.user.Nickname}}"
-                       placeholder="Nickname" required/>
-            </div>
-        </div>
-        <div>
-            <div class="underline">
-                <input type="password" name="password" value="" placeholder="Password"/>
-            </div>
-        </div>
-        <div>
-            <div class="underline">
-                <input type="text" name="age" value="{{.user.Age}}"
-                       placeholder="Age" title="年齢 or 年代" required/>
-            </div>
-        </div>
-        <div>
-            <div class="underline">
-                <select name="age_display_flag" title="他ユーザーに年齢を公開するかどうか選べます" required>
-                    <option value="0" {{if eq .user.AgeDisplayFlag 0}} selected {{end}}>年齢非表示</option>
-                    <option value="1" {{if eq .user.AgeDisplayFlag 1}} selected {{end}}>年齢表示</option>
-                </select>
-            </div>
-        </div>
-        <div>
-            <div class="underline">
-                <input type="text" name="address" value="{{.user.Address}}"
-                       placeholder="住んでいる地域" title="住んでいる地域" required/>
-            </div>
-        </div>
-        <div>
-            <div class="underline">
-                <input type="text" name="birth_place" value="{{.user.BirthPlace}}"
-                       placeholder="出身地" title="出身地" required/>
-            </div>
-        </div>
-        <div>
-            <div class="underline">
-                <textarea rows="3" name="hobby" placeholder="趣味" title="趣味" required>{{.user.Hobby}}</textarea>
-            </div>
-        </div>
-        <div>
-            <div class="underline">
-                <input type="text" name="occupation" value="{{.user.Occupation}}" placeholder="職業" title="職業"
-                       required/>
-            </div>
-        </div>
-        <div>
-            <div class="underline">
-                <textarea rows="3" name="strong_point" placeholder="自身の強み" title="自身の強み"
-                          required>{{.user.StrongPoint}}</textarea>
-            </div>
-        </div>
-        <div>
-            <div class="underline">
-                <textarea rows="3" name="skill" placeholder="使えるスキル、言語など" title="使えるスキル、言語など"
-                          required>{{.user.Skill}}</textarea>
-            </div>
-        </div>
-        <div class="buttons">
-            <div>
-                <button>Profile Edit</button>
-            </div>
-            <div>
-                <button formaction="/user/delete/{{.user.ID }}" onClick="alert('本当に削除してよろしいですか？');">Delete</button>
-            </div>
-        </div>
-    </div>
-</form>
-
-{{ range $i, $go := .user.Goals }}
-<form method="post">
-    <div class="form-inner">
-        <h2>My Goal {{ $i }}</h2>
-        <div>
-            <div class="underline">
-                <select name="genre_id_{{ $go.ID }}" required>
-                    {{ range $j, $ge := $.genres }}
-                        <option value="{{ $ge.ID }}" {{ if eq $ge.ID $go.GenreID }} selected {{ end }}> {{ $ge.GenreName }} </option>
-                    {{ end }}
-                </select>
-            </div>
-        </div>
-        <div>
-            <div class="underline">
-                <input type="text" name="goal_name_{{ $go.ID }}" value="{{ $go.GoalName }}"
-                       placeholder="最終目標" required/>
-            </div>
-        </div>
-        <div>
-            <div class="underline">
-                <select name="display_flag_{{ $go.ID }}" required>
-                    <option value="0" {{if eq $go.DisplayFlag 0}} selected {{end}}>非表示</option>
-                    <option value="1" {{if eq $go.DisplayFlag 1}} selected {{end}}>表示</option>
-                </select>
-            </div>
-        </div>
-        <div class="buttons">
-            <div>
-                <button formaction="/user/user_edit_goal/{{ $go.ID }}">Goal Edit</button>
-            </div>
-            <div>
-                <button formaction="/user/user_delete_goal/{{ $go.ID }}" onClick="alert('本当に削除してよろしいですか？');">Goal
-                    Delete
-                </button>
-            </div>
-        </div>
-    </div>
-
-    {{ range $k, $to := $go.TodoLists }}
     <form method="post" action="/user/edit_my_page">
         <div class="form-inner">
-            <h3>Todo {{ $k}}</h3>
+            <h1>My Page</h1>
+            <h2>My Profile</h2>
+            <div class="form-footer">
+                {{ if .err }}
+                {{ range $i, $v := .err }}
+                <p class="error">{{ $v }}</p>
+                {{ end }}
+                {{end}}
+            </div>
             <div>
                 <div class="underline">
-                    <input type="text" name="required_elements_{{ $to.ID }}"
-                           value="{{ $to.RequiredElements }}" placeholder="目標達成のために必要なこと" required/>
+                    <input type="text" name="nickname" value="{{.user.Nickname}}" placeholder="Nickname" required />
                 </div>
             </div>
             <div>
                 <div class="underline">
-                    <input type="text" name="specific_goal_{{ $to.ID }}"
-                           value="{{ $to.SpecificGoal}}"
-                           placeholder="具体的な目標" required/>
+                    <input type="password" name="password" value="" placeholder="Password" />
                 </div>
             </div>
             <div>
                 <div class="underline">
-                    <input type="text" name="todo_{{ $to.ID }}"
-                           value="{{ $to.Todo}}"
-                           placeholder="Todo" required/>
+                    <input type="text" name="age" value="{{.user.Age}}" placeholder="Age" title="年齢 or 年代" required />
                 </div>
             </div>
             <div>
                 <div class="underline">
-                    <input type="date" name="limit_date_{{ $to.ID }}" value="{{ $to.LimitDate.Format "2006-01-02"}}"
-                           placeholder="期限" required/>
+                    <select name="age_display_flag" title="他ユーザーに年齢を公開するかどうか選べます" required>
+                        <option value="0" {{if eq .user.AgeDisplayFlag 0}} selected {{end}}>年齢非表示</option>
+                        <option value="1" {{if eq .user.AgeDisplayFlag 1}} selected {{end}}>年齢表示</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <div class="underline">
+                    <input type="text" name="address" value="{{.user.Address}}" placeholder="住んでいる地域" title="住んでいる地域"
+                        required />
+                </div>
+            </div>
+            <div>
+                <div class="underline">
+                    <input type="text" name="birth_place" value="{{.user.BirthPlace}}" placeholder="出身地" title="出身地"
+                        required />
+                </div>
+            </div>
+            <div>
+                <div class="underline">
+                    <textarea rows="3" name="hobby" placeholder="趣味" title="趣味" required>{{.user.Hobby}}</textarea>
+                </div>
+            </div>
+            <div>
+                <div class="underline">
+                    <input type="text" name="occupation" value="{{.user.Occupation}}" placeholder="職業" title="職業"
+                        required />
+                </div>
+            </div>
+            <div>
+                <div class="underline">
+                    <textarea rows="3" name="strong_point" placeholder="自身の強み" title="自身の強み"
+                        required>{{.user.StrongPoint}}</textarea>
+                </div>
+            </div>
+            <div>
+                <div class="underline">
+                    <textarea rows="3" name="skill" placeholder="使えるスキル、言語など" title="使えるスキル、言語など"
+                        required>{{.user.Skill}}</textarea>
                 </div>
             </div>
             <div class="buttons">
                 <div>
-                    <button formaction="/user/user_edit_todo/{{ $to.ID }}">Todo Edit</button>
+                    <button>Profile Edit</button>
                 </div>
                 <div>
-                    <button formaction="/user/user_delete_todo/{{ $to.ID }}" onClick="alert('本当に削除してよろしいですか？');">Todo
+                    <button formaction="/user/delete/{{.user.ID }}" onClick="alert('本当に削除してよろしいですか？');">Delete</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    {{ range $i, $go := .user.Goals }}
+    <form method="post">
+        <div class="form-inner">
+            <h2>My Goal {{ $i }}</h2>
+            <div>
+                <div class="underline">
+                    <select name="genre_id_{{ $go.ID }}" required>
+                        {{ range $j, $ge := $.genres }}
+                        <option value="{{ $ge.ID }}" {{ if eq $ge.ID $go.GenreID }} selected {{ end }}>
+                            {{ $ge.GenreName }} </option>
+                        {{ end }}
+                    </select>
+                </div>
+            </div>
+            <div>
+                <div class="underline">
+                    <input type="text" name="goal_name_{{ $go.ID }}" value="{{ $go.GoalName }}" placeholder="最終目標"
+                        required />
+                </div>
+            </div>
+            <div>
+                <div class="underline">
+                    <select name="display_flag_{{ $go.ID }}" required>
+                        <option value="0" {{if eq $go.DisplayFlag 0}} selected {{end}}>非表示</option>
+                        <option value="1" {{if eq $go.DisplayFlag 1}} selected {{end}}>表示</option>
+                    </select>
+                </div>
+            </div>
+            <div class="buttons">
+                <div>
+                    <button formaction="/user/user_edit_goal/{{ $go.ID }}">Goal Edit</button>
+                </div>
+                <div>
+                    <button formaction="/user/user_delete_goal/{{ $go.ID }}" onClick="alert('本当に削除してよろしいですか？');">Goal
                         Delete
                     </button>
                 </div>
             </div>
+        </div>
 
-            {{ end }}
+        {{ range $k, $to := $go.TodoLists }}
+        <form method="post" action="/user/edit_my_page">
+            <div class="form-inner">
+                <h3>Todo {{ $k}}</h3>
+                <div>
+                    <div class="underline">
+                        <input type="text" name="required_elements_{{ $to.ID }}" value="{{ $to.RequiredElements }}"
+                            placeholder="目標達成のために必要なこと" required />
+                    </div>
+                </div>
+                <div>
+                    <div class="underline">
+                        <input type="text" name="todo_{{ $to.ID }}" value="{{ $to.Todo}}" placeholder="具体的な目標" required />
+                    </div>
+                </div>
+                <div>
+                    <div class="underline">
+                        <input type="text" name="specific_goal_{{ $to.ID }}" value="{{ $to.SpecificGoal}}"
+                            placeholder="目標の評価方法" required />
+                    </div>
+                </div>
+                <div>
+                    <div class="underline">
+                        <input type="date" name="limit_date_{{ $to.ID }}" value="{{ $to.LimitDate.Format "2006-01-02"}}"
+                            placeholder="期限" required />
+                    </div>
+                </div>
+                <div class="buttons">
+                    <div>
+                        <button formaction="/user/user_edit_todo/{{ $to.ID }}">Todo Edit</button>
+                    </div>
+                    <div>
+                        <button formaction="/user/user_delete_todo/{{ $to.ID }}"
+                            onClick="alert('本当に削除してよろしいですか？');">Todo
+                            Delete
+                        </button>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+        </form>
+        {{ end }}
+    </form>
+
+    <form method="post" action="/user/add_goal">
+        <div class="form-inner">
+            <h2 title="目標を追加できます。">Add Goal</h2>
+            <div>
+                <div class="underline">
+                    <select name="genre_id" title="目標のジャンルを選択してください">
+                        {{ range $j, $ge := $.genres }}
+                        <option value="{{ $ge.ID }}"> {{ $ge.GenreName }} </option>
+                        {{ end }}
+                    </select>
+                </div>
+            </div>
+            <div>
+                <div class="underline">
+                    <input type="text" name="goal_name" placeholder="最終目標を教えて下さい" title="最終目標を教えて下さい" />
+                </div>
+                <div align="right" class="example_text">
+                    ex)痩せてキレイになる
+                </div>
+            </div>
+            <div>
+                <div class="underline">
+                    <select name="display_flag" required>
+                        <option value="0">非表示</option>
+                        <option value="1">表示</option>
+                    </select>
+                </div>
+            </div>
+            <div class="buttons">
+                <div>
+                    <button type="reset" tabindex="13">Clear</button>
+                </div>
+                <div>
+                    <button type="submit" tabindex="14">Add</button>
+                </div>
+            </div>
         </div>
     </form>
-    {{ end }}
-</form>
 
-<form method="post" action="/user/add_goal">
-    <div class="form-inner">
-        <h2 title="目標を追加できます。">Add Goal</h2>
-        <div>
-            <div class="underline">
-                <select name="genre_id" title="目標のジャンルを選択してください">
-                    {{ range $j, $ge := $.genres }}
-                        <option value="{{ $ge.ID }}"> {{ $ge.GenreName }} </option>
-                    {{ end }}
-                </select>
-            </div>
-        </div>
-        <div>
-            <div class="underline">
-                <input type="text" name="goal_name" placeholder="最終目標を教えて下さい"
-                       title="最終目標を教えて下さい"/>
-            </div>
-            <div align="right" class="example_text">
-                ex)痩せてキレイになる
-            </div>
-        </div>
-        <div>
-            <div class="underline">
-                <select name="display_flag" required>
-                    <option value="0">非表示</option>
-                    <option value="1">表示</option>
-                </select>
-            </div>
-        </div>
-        <div class="buttons">
+    <form method="post" action="/user/add_todo">
+        <div class="form-inner">
+            <h2 title="目標に対するTodoを追加できます。">Add Todo</h2>
             <div>
-                <button type="reset" tabindex="13">Clear</button>
-            </div>
-            <div>
-                <button type="submit" tabindex="14">Add</button>
-            </div>
-        </div>
-    </div>
-</form>
-
-<form method="post" action="/user/add_todo">
-    <div class="form-inner">
-        <h2 title="目標に対するTodoを追加できます。">Add Todo</h2>
-        <div>
-            <div class="underline">
-                <select name="goal_id" title="対応する目標を選択してください">
-                    {{ range $i, $go := .user.Goals }}
+                <div class="underline">
+                    <select name="goal_id" title="対応する目標を選択してください">
+                        {{ range $i, $go := .user.Goals }}
                         <option value="{{ $go.ID }}"> {{ $go.GoalName }} </option>
-                    {{ end }}
-                </select>
-            </div>
-        </div>
-        <div>
-            <div class="underline">
-                <input type="text" name="required_elements" placeholder="目標を達成するために必要な要素を教えてください"
-                       title="目標を達成するために必要な要素を教えてください"/>
-            </div>
-            <div align="right">
-                ex)継続的な有酸素運動
-            </div>
-        </div>
-        <div>
-            <div class="underline">
-                <input type="text" name="todo" placeholder="そのためにやるべきことを教えて下さい"
-                       title="そのためにやるべきことを教えて下さい"/>
-            </div>
-            <div align="right">
-                ex)毎日4キロ走る
-            </div>
-        </div>
-        <div>
-            <div class="underline">
-                <input type="text" name="specific_goal" placeholder="目標達成の評価方法を教えて下さい"
-                       title="目標達成の評価方法を教えて下さい"/>
-            </div>
-            <div align="right">
-                ex)今より3キロ痩せる
-            </div>
-        </div>
-        <div>
-            <div class="underline">
-                <input type="date" name="limit_date" placeholder="期限を教えて下さい"
-                       title="期限を教えて下さい"/>
-            </div>
-            <div align="right">
-                ex)2024/12/31
-            </div>
-        </div>
-        <div class="buttons">
-            <div>
-                <button type="reset" tabindex="13">Clear</button>
+                        {{ end }}
+                    </select>
+                </div>
             </div>
             <div>
-                <button type="submit" tabindex="14">Add</button>
+                <div class="underline">
+                    <input type="text" name="required_elements" placeholder="目標を達成するために必要な要素を教えてください"
+                        title="目標を達成するために必要な要素を教えてください" />
+                </div>
+                <div align="right">
+                    ex)継続的な有酸素運動
+                </div>
+            </div>
+            <div>
+                <div class="underline">
+                    <input type="text" name="todo" placeholder="そのためにやるべきことを教えて下さい" title="そのためにやるべきことを教えて下さい" />
+                </div>
+                <div align="right">
+                    ex)毎日4キロ走る
+                </div>
+            </div>
+            <div>
+                <div class="underline">
+                    <input type="text" name="specific_goal" placeholder="目標達成の評価方法を教えて下さい" title="目標達成の評価方法を教えて下さい" />
+                </div>
+                <div align="right">
+                    ex)今より3キロ痩せる
+                </div>
+            </div>
+            <div>
+                <div class="underline">
+                    <input type="date" name="limit_date" placeholder="期限を教えて下さい" title="期限を教えて下さい" />
+                </div>
+                <div align="right">
+                    ex)2024/12/31
+                </div>
+            </div>
+            <div class="buttons">
+                <div>
+                    <button type="reset" tabindex="13">Clear</button>
+                </div>
+                <div>
+                    <button type="submit" tabindex="14">Add</button>
+                </div>
             </div>
         </div>
-    </div>
-</form>
+    </form>
 
-{{if .err}}
+    {{if .err}}
     <div class="form-footer">
         <p>{{.err}}</p>
     </div>
-{{end}}
+    {{end}}
 
 
 </body>
+
 </html>
