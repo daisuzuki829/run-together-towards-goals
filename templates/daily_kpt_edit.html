@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Edit DailyKpt</title>
+    <link href="../assets/css/from.css" rel="stylesheet">
+    <style type="text/css" media="screen">
+        @import url("/assets/css/menu.css");
+        @import url("/assets/css/from.css");
+    </style>
+
+</head>
+
+<body>
+    {{ template "header" }}
+
+    <form method="post" action="/daily_kpt/edit_ok/{{.dailyKpt.ID}}">
+        <div class="form-inner">
+            <h2>Edit DailyKpt</h2>
+            <div>
+                <div class="underline">
+                    <textarea rows="3" name="keep" placeholder="Keep" required>{{ .dailyKpt.Keep }}</textarea>
+                </div>
+            </div>
+            <div>
+                <div class="underline">
+                    <textarea rows="3" name="problem" placeholder="Problem" required>{{ .dailyKpt.Problem }}</textarea>
+                </div>
+            </div>
+            <div>
+                <div class="underline">
+                    <textarea rows="3" name="try" placeholder="Try" required>{{ .dailyKpt.Try }}</textarea>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <div>
+                    <button type="reset" tabindex="13">Clear</button>
+                </div>
+                <div>
+                    <button type="submit" tabindex="14">Edit MonthlyPlan</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</body>
+
+</html>

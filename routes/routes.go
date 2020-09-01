@@ -99,6 +99,8 @@ func Handler(dbConn *gorm.DB) {
 		rDailyKpt := r.Group("/daily_kpt")
 		{
 			rDailyKpt.POST("add", handler.AddDailyKpt)
+			rDailyKpt.GET("edit/:id", handler.GetDailyKpt)
+			rDailyKpt.POST("edit_ok/:id", handler.EditDailyKpt)
 			rDailyKpt.POST("good/:id", handler.IncreaseGood)
 			rDailyKpt.POST("fight/:id", handler.IncreaseFight)
 			rDailyKpt.POST("delete/:id", handler.DeleteDailyKpt)

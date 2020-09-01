@@ -32,6 +32,31 @@ func (h *Handler) AddDailyKpt(c *gin.Context) {
 	c.Redirect(http.StatusMovedPermanently, "/_daily_kpts")
 }
 
+// GetDailyKpt ...
+func (h *Handler) GetDailyKpt(c *gin.Context) {
+	r := models.NewDailyKptRepository()
+	id, _ := strconv.Atoi(c.Param("id"))
+	dailyKpt := r.GetOne(id)
+
+	c.HTML(http.StatusOK, "daily_kpt_edit.html", gin.H{
+		"dailyKpt": dailyKpt,
+	})
+}
+
+// EditDailyKpt ...
+func (h *Handler) EditDailyKpt(c *gin.Context) {
+	r := models.NewDailyKptRepository()
+	id, _ := strconv.Atoi(c.Param("id"))
+	dailyKpt := r.GetOne(id)
+
+	dailyKpt.Keep, _ = c.GetPostForm("keep")
+	dailyKpt.Problem, _ = c.GetPostForm("problem")
+	dailyKpt.Try, _ = c.GetPostForm("try")
+
+	r.Edit(dailyKpt)
+	c.Redirect(http.StatusMovedPermanently, "/_daily_kpts")
+}
+
 // IncreaseGood ...
 func (h *Handler) IncreaseGood(c *gin.Context) {
 	r := models.NewDailyKptRepository()

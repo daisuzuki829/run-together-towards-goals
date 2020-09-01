@@ -57,6 +57,7 @@
             <th>Created</th>
             <th>Good</th>
             <th>Fight</th>
+            <th>Edit</th>
             <th>Delete</th>
         </tr>
         {{ range .dailyKpts }}
@@ -74,6 +75,9 @@
                 <td>
                     {{ .Fight }}
                     <button formaction="/daily_kpt/fight/{{.ID}}" class="btn-yellow">Fight</button>
+                </td>
+                <td>
+                    <a href="/daily_kpt/edit/{{.ID}}" class="btn-yellow">Edit</a>
                 </td>
                 <td>
                     <button formaction="/daily_kpt/delete/{{.ID}}" class="btn-blue"
