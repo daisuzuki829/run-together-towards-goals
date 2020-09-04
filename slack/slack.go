@@ -27,10 +27,8 @@ func postSlack(requestBody interface{}) string {
 		return err.Error()
 	}
 
-	var adminWebHock string
-	if os.Getenv("SLACK_ADMIN_WEBHOCK") != "" {
-		adminWebHock = os.Getenv("SLACK_ADMIN_WEBHOCK")
-	} else {
+	adminWebHock := os.Getenv("SLACK_ADMIN_WEBHOCK")
+	if adminWebHock == "" {
 		return "Error : Unset slack Admin WebHock"
 	}
 	req, err := http.NewRequest("POST", adminWebHock, bytes.NewBuffer(jsonModel))

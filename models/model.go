@@ -16,10 +16,10 @@ import (
 // Open ...
 func Open() *gorm.DB {
 	driver := "mysql"
-	var dataSource string
 
-	if os.Getenv("CLEARDB_DATABASE_URL") != "" {
-		dataSource = convertDataSource(os.Getenv("CLEARDB_DATABASE_URL"))
+	dataSource := os.Getenv("CLEARDB_DATABASE_URL")
+	if dataSource == "" {
+		dataSource = convertDataSource(dataSource)
 	} else {
 		dataSource = "root:pass@tcp(mysql:3306)/my_goal"
 	}
