@@ -16,4 +16,6 @@ COPY --from=builder /go/src/app/ /app
 
 ENV PORT=${PORT}
 
+WORKDIR /app
+
 ENTRYPOINT ["./app"]
