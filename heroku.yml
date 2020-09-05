@@ -1,10 +1,13 @@
+# Specifies the Dockerfile to build
 build:
   docker:
-    web: Dockerfile
-    worker:
-      dockerfile: Dockerfile # TODO docker/app配下のDockerfileを指定したいけどできない・・
-      target: builder # builderのイメージをbuildする際に使う
+    web: docker/app/Dockerfile
+    worker: docker/app/Dockerfile
+
+# Specifies the release phase tasks to execute
 release:
-  image: worker # 上記のworkerのイメージをreleaseフェーズでも使う
+  image: worker
+
+# Specifies process types and the commands to run for each
 run:
   web: /main
