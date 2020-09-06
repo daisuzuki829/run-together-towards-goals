@@ -2,10 +2,10 @@
 build:
   docker:
     web: Dockerfile
-    worker: Dockerfile
-    # worker:
-    #   dockerfile: Dockerfile # TODO docker/app配下のDockerfileを指定したいけどできない・・
-    #   target: builder # builderのイメージをbuildする際に使う
+    worker:
+      dockerfile: Dockerfile # TODO docker/app配下のDockerfileを指定したいけどできない・・
+      target: builder # builderのイメージをbuildする際に使う
+    # worker: Dockerfile
     # web: docker/app/Dockerfile
     # worker: docker/app/Dockerfile
 
