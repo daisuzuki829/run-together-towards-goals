@@ -43,8 +43,7 @@ services:
       - './src:/go/src/app'
     environment:
       REDIS_HOST: redis
-    command: sh ./start_app.sh
-      # TODO MySQLが立ち上がっていない状態だと、appコンテナが正しく起動しない
+    # command: sh ./start_app.sh
 
   redis:
     hostname: redis

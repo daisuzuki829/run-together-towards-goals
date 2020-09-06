@@ -8,6 +8,7 @@ import (
 // dbInit...
 func Init() *gorm.DB {
 	db := models.Open()
+	defer db.Close()
 
 	db.LogMode(true)
 
@@ -24,6 +25,5 @@ func Init() *gorm.DB {
 	r := models.NewGenreRepository()
 	r.GenreMigration()
 
-	defer db.Close()
 	return db
 }

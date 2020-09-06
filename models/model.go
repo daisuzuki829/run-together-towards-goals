@@ -4,13 +4,14 @@ import (
 	"fmt"
 	"log"
 
-	// 
+	//
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
-	// 
+	//
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"net/url"
 	"os"
+	"time"
 )
 
 // Open ...
@@ -23,15 +24,20 @@ func Open() *gorm.DB {
 	} else {
 		dataSource = "root:pass@tcp(mysql:3306)/my_goal"
 	}
-	databaseConnect :=  dataSource+"?parseTime=true&charset=utf8"
-	db, err := gorm.Open(driver, databaseConnect)
-	if err != nil {
-		log.Println(err.Error())
-		log.Println("データベースと接続できませんでした。")
-		os.Exit(1)
+	databaseConnect :=  dataSource + "?parseTime=true&charset=utf8"
+
+	for i := 0; i < 30; i++ {
+		var db *gorm.DB
+		var err error
+		if db, err = gorm.Open(driver, databaseConnect); err != nil {
+			log.Println(err.Error())
+			log.Println("データベースと接続できませんでした。")
+			time.Sleep(time.Second * 10)
+		} else {
+			return db
+		}
 	}
-	_ = os.Setenv("DATABASE_URL", databaseConnect)
-	return db
+	return nil
 }
 
 func convertDataSource(ds string) (result string) {
