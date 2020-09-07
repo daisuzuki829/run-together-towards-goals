@@ -40,7 +40,7 @@ services:
       - '8080:8080'
     tty: true
     volumes:
-      - './src:/go/src/app'
+      - '.:/go/src/app'
     environment:
       REDIS_HOST: redis
     # command: sh ./start_app.sh

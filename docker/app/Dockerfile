@@ -6,11 +6,14 @@ ADD . .
 
 RUN go mod download
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags "-w" -a -o app .
+# RUN go build -o app .
 
 #Step2 Move build file
 FROM alpine:latest
 
-RUN apk add --no-cache git vim less curl make gcc mariadb-client mysql-dev alpine-sdk
+RUN apk add --no-cache git vim less curl make gcc mariadb-client mysql-dev alpine-sdk tzdata  && \
+    cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
+    apk del tzdata
 
 COPY --from=builder /go/src/app/ /app
 
