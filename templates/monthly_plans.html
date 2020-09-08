@@ -27,6 +27,12 @@
                     {{ end }}
                 </select>
             </div>
+            {{ if .goals }}
+            {{ else }}
+                <div class="form-footer">
+                    <p>⚠目標が設定されていません。My PageのAdd Goalにて目標を登録してください。</p>
+                </div>
+            {{ end }}
         </div>
         <div>
             <div class="underline">
