@@ -59,7 +59,7 @@ func (o *MonthlyPlan) Edit(monthlyPlan MonthlyPlan) {
 func (o *MonthlyPlan) GetAll(id int) []MonthlyPlans {
 	db := Open()
 	var monthlyPlans []MonthlyPlans
-	db.Debug().Table("monthly_plans").
+	db.Table("monthly_plans").
 		Select("monthly_plans.*, users.nickname, goals.goal_name").
 		Joins("inner JOIN users ON monthly_plans.user_id = users.id").
 		Joins("inner JOIN goals ON monthly_plans.goal_id = goals.id").
