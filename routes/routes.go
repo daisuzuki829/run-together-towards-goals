@@ -16,6 +16,7 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
+// Handler ...
 func Handler(dbConn *gorm.DB) {
 
 	handler := controllers.Handler{
@@ -127,25 +128,31 @@ func Handler(dbConn *gorm.DB) {
 		})
 	}
 
-	rApi := r.Group("/api")
+	rAPI := r.Group("/api")
 	{
-		rApiUser := rApi.Group("/user")
+		rAPIUser := rAPI.Group("/user")
 		{
-			rApiUser.GET("", apiHandler.GetUser)
-			rApiUser.POST("add", apiHandler.AddUser)
-			rApiUser.PUT("edit", apiHandler.EditUser)
+			rAPIUser.GET("", apiHandler.GetUser)
+			rAPIUser.POST("add", apiHandler.AddUser)
+			rAPIUser.PUT("edit", apiHandler.EditUser)
 		}
-		rApiDailyKpt := rApi.Group("/daily_kpt")
+		rMonthlyPlan := rAPI.Group("/daily_kpt")
 		{
-			rApiDailyKpt.GET("", apiHandler.GetDailyKpts)
-			rApiDailyKpt.POST("add", apiHandler.PostDailyKpt)
-			rApiDailyKpt.PUT("good", apiHandler.IncreaseGood)
-			rApiDailyKpt.PUT("fight", apiHandler.IncreaseFight)
+			rMonthlyPlan.GET("", apiHandler.GetMonthlyPlan)
+			rMonthlyPlan.POST("add", apiHandler.AddMonthlyPlan)
+			rMonthlyPlan.PUT("add", apiHandler.EditMonthlyPlan)
 		}
-		rApiMyGoal := rApi.Group("/my_goals")
+		rAPIDailyKpt := rAPI.Group("/daily_kpt")
 		{
-			rApiMyGoal.POST("add", apiHandler.SetMyGoal)
-			rApiMyGoal.PUT("edit", apiHandler.EditMyGoal)
+			rAPIDailyKpt.GET("", apiHandler.GetDailyKpts)
+			rAPIDailyKpt.POST("add", apiHandler.PostDailyKpt)
+			rAPIDailyKpt.PUT("good", apiHandler.IncreaseGood)
+			rAPIDailyKpt.PUT("fight", apiHandler.IncreaseFight)
+		}
+		rAPIMyGoal := rAPI.Group("/my_goals")
+		{
+			rAPIMyGoal.POST("add", apiHandler.SetMyGoal)
+			rAPIMyGoal.PUT("edit", apiHandler.EditMyGoal)
 		}
 	}
 
