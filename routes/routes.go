@@ -136,7 +136,7 @@ func Handler(dbConn *gorm.DB) {
 			rAPIUser.POST("add", apiHandler.AddUser)
 			rAPIUser.PUT("edit", apiHandler.EditUser)
 		}
-		rMonthlyPlan := rAPI.Group("/daily_kpt")
+		rMonthlyPlan := rAPI.Group("/monthly_plan")
 		{
 			rMonthlyPlan.GET("", apiHandler.GetMonthlyPlan)
 			rMonthlyPlan.POST("add", apiHandler.AddMonthlyPlan)
