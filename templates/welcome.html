@@ -1,120 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Welcome</title>
     <link href="../assets/css/table.css" rel="stylesheet">
     <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
 </head>
+
 <body>
-{{ template "header" }}
+    {{ template "header" }}
 
-welcome
-{{if .user }}
+    welcome
+    {{if .user }}
     , {{.user.Nickname}}
-{{end}}
-!
+    {{end}}
+    !
 
-<br><br>
+    <br><br>
 
-<h2>アプリの使い方</h2>
+    <h2>★アプリの使い方</h2>
 
-<ol>
-    <li>会員登録をする</li>
-    <li> <a href="/user/my_page">Users>MyPage</a>にて、下記を設定する
-        <ul>
-            <li>My Profile（自己紹介）</li>
-            <li>Goal(あなたの目標)：複数設定可能</li>
-            <li>Todo(目標達成のために必要なこと)：複数設定可能</li>
-        </ul>
-    <li><a href="_monthly_plans">Monthly Plan</a>にて、月次の目標を設定する</li>
-    <li><a href="_daily_kpts">Daily Kpts</a>にて、日々振り返りを行う</li>
-</ol>
+    <ol>
+        <li>会員登録をする</li>
+        <li> <a href="/user/my_page">Users>MyPage</a>にて、下記を設定する
+            <ul>
+                <li>My Profile（自己紹介）</li>
+                <li>Goal(あなたの目標)：複数設定可能</li>
+                <li>Todo(目標達成のために必要なこと)：複数設定可能</li>
+            </ul>
+        <li><a href="_monthly_plans">Monthly Plan</a>にて、月次の目標を設定する</li>
+        <li><a href="_daily_kpts">Daily Kpts</a>にて、日々振り返りを行う</li>
+    </ol>
 
-<h2>目標を達成するために</h2>
+    <h2>★ご意見フォーム</h2>
 
-<h3>目標の立て方</h3>
+    <a href="https://docs.google.com/forms/d/1_eKw5lRw_igPTVTgL5uXnBJL6oLvpbPqIi54_0c0lOo/edit">Google Form</a>
 
-<ul>
-    <li>課題を洗い出す</li>
-    <li>ステップ形式にし、細分化する</li>
-    <li>現実的で、具体的かつ明確な形にする</li>
-    <li>目標の達成度合いが数値的に評価できる</li>
-    <li>期限をつける</li>
-</ul>
+    <h2>★目標を達成するために</h2>
 
-<h3>目標を立てたあと</h3>
-<ul>
-    <li>周りに共有し、自分にプレッシャーをかける</li>
-    <li>行動を継続する</li>
-    <li>記録する</li>
-    <li>行動を振り返る</li>
-    <li>ご褒美</li>
-    <li>達成したときのメリットを見える化する</li>
-</ul>
+    <h3>目標の立て方</h3>
 
-<br><br>
+    <ul>
+        <li>課題を洗い出す</li>
+        <li>ステップ形式にし、細分化する</li>
+        <li>現実的で、具体的かつ明確な形にする</li>
+        <li>目標の達成度合いが数値的に評価できる</li>
+        <li>期限をつける</li>
+    </ul>
 
-<table>
-    <tr>
-        <th></th>
-        <th>物 what</th>
-        <th>環境 when/where</th>
-        <th>選択 which</th>
-        <th>人 who</th>
-        <th>方法 how</th>
-    </tr>
-    <tr>
-        <td>現在 is/does</td>
-        <td>今、どんな運動をしているか？</td>
-        <td>今、どこで運動をしているか？</td>
-        <td>有酸素運動と無酸素運動ならどちらがいいか？</td>
-        <td>今、誰と運動しているか？</td>
-        <td>今、どうやって運動しているか？</td>
-    </tr>
-    <tr>
-        <td>過去 was/did</td>
-        <td>過去にはどんな運動をしていたか？</td>
-        <td>過去にはどこで運動をしていたか？</td>
-        <td>有酸素運動と無酸素運動のどちらが好きだったか？</td>
-        <td>過去には誰と運動していたか？</td>
-        <td>過去にはどうやって運動していたか？</td>
-    </tr>
-    <tr>
-        <td>可能 can</td>
-        <td>どんな運動が可能か？</td>
-        <td>他にはどこで運動することが可能か？</td>
-        <td>有酸素運動と無酸素運動、どちらが続けやすいだろうか？</td>
-        <td>誰と運動することができるか？</td>
-        <td>どうやって運動することが可能か？</td>
-    </tr>
-    <tr>
-        <td>推量 should/would</td>
-        <td>健康のためにはどんな運動をすべきだろうか？</td>
-        <td>どこで運動すべきだろうか？</td>
-        <td>有酸素運動と無酸素運動のどちらをやるべきだろうか？</td>
-        <td>誰と運動すべきだろうか？</td>
-        <td>どうやって運動するべきだろうか？</td>
-    </tr>
-    <tr>
-        <td>未来 will</td>
-        <td>どんな運動をしてみたいか？</td>
-        <td>どこで運動したいか？</td>
-        <td>今後の健康のためには、有酸素運動と無酸素運動のどちらがいいか？</td>
-        <td>誰と運動したいか？</td>
-        <td>どうやって運動したいか？</td>
-    </tr>
-    <tr>
-        <td>想像 might</td>
-        <td>どんな運動が面白そうか？</td>
-        <td>どこで運動できそうか？</td>
-        <td>有酸素運動と無酸素運動、どちらかがデメリットを及ぼすことはないか？</td>
-        <td>一緒に運動してくれる人を探す方法はないか？</td>
-        <td>良い運動のやり方を教わるにはどうしたらいいか？</td>
-    </tr>
-</table>
+    <h3>目標を立てたあと</h3>
+    <ul>
+        <li>周りに共有し、自分にプレッシャーをかける</li>
+        <li>行動を継続する</li>
+        <li>記録する</li>
+        <li>行動を振り返る</li>
+        <li>ご褒美</li>
+        <li>達成したときのメリットを見える化する</li>
+    </ul>
+
+    <br><br>
+
+    <table>
+        <tr>
+            <th></th>
+            <th>物 what</th>
+            <th>環境 when/where</th>
+            <th>選択 which</th>
+            <th>人 who</th>
+            <th>方法 how</th>
+        </tr>
+        <tr>
+            <td>現在 is/does</td>
+            <td>今、どんな運動をしているか？</td>
+            <td>今、どこで運動をしているか？</td>
+            <td>有酸素運動と無酸素運動ならどちらがいいか？</td>
+            <td>今、誰と運動しているか？</td>
+            <td>今、どうやって運動しているか？</td>
+        </tr>
+        <tr>
+            <td>過去 was/did</td>
+            <td>過去にはどんな運動をしていたか？</td>
+            <td>過去にはどこで運動をしていたか？</td>
+            <td>有酸素運動と無酸素運動のどちらが好きだったか？</td>
+            <td>過去には誰と運動していたか？</td>
+            <td>過去にはどうやって運動していたか？</td>
+        </tr>
+        <tr>
+            <td>可能 can</td>
+            <td>どんな運動が可能か？</td>
+            <td>他にはどこで運動することが可能か？</td>
+            <td>有酸素運動と無酸素運動、どちらが続けやすいだろうか？</td>
+            <td>誰と運動することができるか？</td>
+            <td>どうやって運動することが可能か？</td>
+        </tr>
+        <tr>
+            <td>推量 should/would</td>
+            <td>健康のためにはどんな運動をすべきだろうか？</td>
+            <td>どこで運動すべきだろうか？</td>
+            <td>有酸素運動と無酸素運動のどちらをやるべきだろうか？</td>
+            <td>誰と運動すべきだろうか？</td>
+            <td>どうやって運動するべきだろうか？</td>
+        </tr>
+        <tr>
+            <td>未来 will</td>
+            <td>どんな運動をしてみたいか？</td>
+            <td>どこで運動したいか？</td>
+            <td>今後の健康のためには、有酸素運動と無酸素運動のどちらがいいか？</td>
+            <td>誰と運動したいか？</td>
+            <td>どうやって運動したいか？</td>
+        </tr>
+        <tr>
+            <td>想像 might</td>
+            <td>どんな運動が面白そうか？</td>
+            <td>どこで運動できそうか？</td>
+            <td>有酸素運動と無酸素運動、どちらかがデメリットを及ぼすことはないか？</td>
+            <td>一緒に運動してくれる人を探す方法はないか？</td>
+            <td>良い運動のやり方を教わるにはどうしたらいいか？</td>
+        </tr>
+    </table>
 
 
-{{/*{{ template "footer" }}*/}}
+    {{/*{{ template "footer" }}*/}}
 </body>
+
 </html>
