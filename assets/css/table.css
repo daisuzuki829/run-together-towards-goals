@@ -26,7 +26,6 @@ table th{
 }
 
 table td{
-    text-align: center;
     border-left: 1px solid #a8b7c5;
     border-bottom: 1px solid #a8b7c5;
     border-top:none;
