@@ -20,17 +20,17 @@
             <h2>Edit DailyKpt</h2>
             <div>
                 <div class="underline">
-                    <textarea rows="3" name="keep" placeholder="Keep" required>{{ .dailyKpt.Keep }}</textarea>
+                    <textarea rows="3" name="keep" placeholder="Keep" maxlength='255' title="255文字まで" required>{{ .dailyKpt.Keep }}</textarea>
                 </div>
             </div>
             <div>
                 <div class="underline">
-                    <textarea rows="3" name="problem" placeholder="Problem" required>{{ .dailyKpt.Problem }}</textarea>
+                    <textarea rows="3" name="problem" placeholder="Problem" maxlength='255' title="255文字まで" required>{{ .dailyKpt.Problem }}</textarea>
                 </div>
             </div>
             <div>
                 <div class="underline">
-                    <textarea rows="3" name="try" placeholder="Try" required>{{ .dailyKpt.Try }}</textarea>
+                    <textarea rows="3" name="try" placeholder="Try" maxlength='255' title="255文字まで" required>{{ .dailyKpt.Try }}</textarea>
                 </div>
             </div>
 

@@ -27,17 +27,17 @@
             </div>
             <div>
                 <div class="underline">
-                    <input type="text" name="nickname" value="{{.user.Nickname}}" placeholder="Nickname" required />
+                    <input type="text" name="nickname" value="{{.user.Nickname}}" placeholder="Nickname"  maxlength='30' title="30文字まで"required />
                 </div>
             </div>
             <div>
                 <div class="underline">
-                    <input type="password" name="password" value="" placeholder="Password" />
+                    <input type="password" name="password" value="" placeholder="Password" maxlength='30' title="30文字まで"/>
                 </div>
             </div>
             <div>
                 <div class="underline">
-                    <input type="text" name="age" value="{{.user.Age}}" placeholder="Age" title="年齢 or 年代" required />
+                    <input type="text" name="age" value="{{.user.Age}}" placeholder="Age" title="年齢 or 年代" required  maxlength='30'/>
                 </div>
             </div>
             <div>
@@ -50,36 +50,36 @@
             </div>
             <div>
                 <div class="underline">
-                    <input type="text" name="address" value="{{.user.Address}}" placeholder="住んでいる地域" title="住んでいる地域"
+                    <input type="text" name="address" value="{{.user.Address}}" placeholder="住んでいる地域" maxlength='30' title="30文字まで"
                         required />
                 </div>
             </div>
             <div>
                 <div class="underline">
-                    <input type="text" name="birth_place" value="{{.user.BirthPlace}}" placeholder="出身地" title="出身地"
+                    <input type="text" name="birth_place" value="{{.user.BirthPlace}}" placeholder="出身地" maxlength='30' title="30文字まで"
                         required />
                 </div>
             </div>
             <div>
                 <div class="underline">
-                    <textarea rows="3" name="hobby" placeholder="趣味" title="趣味" required>{{.user.Hobby}}</textarea>
+                    <textarea rows="3" name="hobby" placeholder="趣味" title="趣味" maxlength='255' required>{{.user.Hobby}}</textarea>
                 </div>
             </div>
             <div>
                 <div class="underline">
-                    <input type="text" name="occupation" value="{{.user.Occupation}}" placeholder="職業" title="職業"
+                    <input type="text" name="occupation" value="{{.user.Occupation}}" placeholder="職業" title="職業" maxlength='255'
                         required />
                 </div>
             </div>
             <div>
                 <div class="underline">
-                    <textarea rows="3" name="strong_point" placeholder="自身の強み" title="自身の強み"
+                    <textarea rows="3" name="strong_point" placeholder="自身の強み" title="自身の強み" maxlength='255'
                         required>{{.user.StrongPoint}}</textarea>
                 </div>
             </div>
             <div>
                 <div class="underline">
-                    <textarea rows="3" name="skill" placeholder="使えるスキル、言語など" title="使えるスキル、言語など"
+                    <textarea rows="3" name="skill" placeholder="使えるスキル、言語など" title="使えるスキル、言語など" maxlength='255'
                         required>{{.user.Skill}}</textarea>
                 </div>
             </div>
@@ -141,18 +141,18 @@
                 <div>
                     <div class="underline">
                         <input type="text" name="required_elements_{{ $to.ID }}" value="{{ $to.RequiredElements }}"
-                            placeholder="目標達成のために必要なこと" required />
+                            placeholder="目標達成のために必要なこと" maxlength='255' required />
                     </div>
                 </div>
                 <div>
                     <div class="underline">
-                        <input type="text" name="todo_{{ $to.ID }}" value="{{ $to.Todo}}" placeholder="具体的な目標" required />
+                        <input type="text" name="todo_{{ $to.ID }}" value="{{ $to.Todo}}" placeholder="具体的な目標" maxlength='255' required />
                     </div>
                 </div>
                 <div>
                     <div class="underline">
                         <input type="text" name="specific_goal_{{ $to.ID }}" value="{{ $to.SpecificGoal}}"
-                            placeholder="目標の評価方法" required />
+                            placeholder="目標の評価方法" maxlength='255' required />
                     </div>
                 </div>
                 <div>
@@ -192,7 +192,7 @@
             </div>
             <div>
                 <div class="underline">
-                    <input type="text" name="goal_name" placeholder="最終目標を教えて下さい" title="最終目標を教えて下さい" />
+                    <input type="text" name="goal_name" placeholder="最終目標を教えて下さい" title="最終目標を教えて下さい" maxlength='255'/>
                 </div>
                 <div align="right" class="example_text">
                     ex)痩せてキレイになる
@@ -232,7 +232,7 @@
             <div>
                 <div class="underline">
                     <input type="text" name="required_elements" placeholder="目標を達成するために必要な要素を教えてください"
-                        title="目標を達成するために必要な要素を教えてください" />
+                        title="目標を達成するために必要な要素を教えてください" maxlength='255'/>
                 </div>
                 <div align="right">
                     ex)継続的な有酸素運動
@@ -240,7 +240,7 @@
             </div>
             <div>
                 <div class="underline">
-                    <input type="text" name="todo" placeholder="そのためにやるべきことを教えて下さい" title="そのためにやるべきことを教えて下さい" />
+                    <input type="text" name="todo" placeholder="そのためにやるべきことを教えて下さい" title="そのためにやるべきことを教えて下さい" maxlength='255'/>
                 </div>
                 <div align="right">
                     ex)毎日4キロ走る
@@ -248,7 +248,7 @@
             </div>
             <div>
                 <div class="underline">
-                    <input type="text" name="specific_goal" placeholder="目標達成の評価方法を教えて下さい" title="目標達成の評価方法を教えて下さい" />
+                    <input type="text" name="specific_goal" placeholder="目標達成の評価方法を教えて下さい" title="目標達成の評価方法を教えて下さい" maxlength='255'/>
                 </div>
                 <div align="right">
                     ex)今より3キロ痩せる
