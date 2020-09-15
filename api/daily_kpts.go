@@ -8,6 +8,7 @@ import (
 	"github.com/hariNEzuMI928/run-together-towards-goals/models"
 )
 
+// DailyKpt ...
 type DailyKpt struct {
 	ID      string `json:"id"`
 	UserID  string `json:"user_id"`
@@ -16,7 +17,7 @@ type DailyKpt struct {
 	Try     string `json:"try"`
 }
 
-// PostDailyKpt...
+// PostDailyKpt ...
 func (h *Handler) PostDailyKpt(c *gin.Context) {
 	var apiDailyKpt DailyKpt
 	_ = c.BindJSON(&apiDailyKpt)
@@ -43,7 +44,29 @@ func (h *Handler) PostDailyKpt(c *gin.Context) {
 	})
 }
 
-// GetDailyKpts...
+// EditDailyKpt ...
+func (h *Handler) EditDailyKpt(c *gin.Context) {
+	var apiDailyKpt DailyKpt
+	c.BindJSON(&apiDailyKpt)
+
+	id, _ := strconv.Atoi(apiDailyKpt.ID)
+	r := models.NewDailyKptRepository()
+	dailyKpt := r.GetOne(id)
+
+	dailyKpt.UserID, _ = strconv.Atoi(apiDailyKpt.UserID)
+	dailyKpt.Keep = apiDailyKpt.Problem
+	dailyKpt.Problem = apiDailyKpt.Problem
+	dailyKpt.Try = apiDailyKpt.Try
+
+	r.Edit(dailyKpt)
+	c.JSON(http.StatusOK, gin.H{
+		"code": http.StatusOK,
+		"msg":  "Update",
+		"id":   dailyKpt.ID,
+	})
+}
+
+// GetDailyKpts ...
 func (h *Handler) GetDailyKpts(c *gin.Context) {
 	r := models.NewDailyKptRepository()
 
@@ -52,7 +75,7 @@ func (h *Handler) GetDailyKpts(c *gin.Context) {
 	})
 }
 
-// IncreaseGood...
+// IncreaseGood ...
 func (h *Handler) IncreaseGood(c *gin.Context) {
 	id, _ := strconv.Atoi(c.DefaultQuery("id", "0"))
 	r := models.NewDailyKptRepository()
@@ -66,7 +89,7 @@ func (h *Handler) IncreaseGood(c *gin.Context) {
 		return
 	}
 
-	dailyKpt.Good += 1
+	dailyKpt.Good++
 
 	r.Edit(dailyKpt)
 
@@ -77,7 +100,7 @@ func (h *Handler) IncreaseGood(c *gin.Context) {
 	})
 }
 
-// IncreaseFight...
+// IncreaseFight ...
 func (h *Handler) IncreaseFight(c *gin.Context) {
 	id, _ := strconv.Atoi(c.DefaultQuery("id", "0"))
 	r := models.NewDailyKptRepository()
@@ -91,7 +114,7 @@ func (h *Handler) IncreaseFight(c *gin.Context) {
 		return
 	}
 
-	dailyKpt.Fight += 1
+	dailyKpt.Fight++
 
 	r.Edit(dailyKpt)
 
@@ -102,6 +125,7 @@ func (h *Handler) IncreaseFight(c *gin.Context) {
 	})
 }
 
+// GetHello ...
 func GetHello(userName string) string {
 	return "Hello, " + userName + "!!"
 }

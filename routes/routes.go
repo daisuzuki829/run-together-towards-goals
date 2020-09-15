@@ -140,12 +140,13 @@ func Handler(dbConn *gorm.DB) {
 		{
 			rMonthlyPlan.GET("", apiHandler.GetMonthlyPlan)
 			rMonthlyPlan.POST("add", apiHandler.AddMonthlyPlan)
-			rMonthlyPlan.PUT("add", apiHandler.EditMonthlyPlan)
+			rMonthlyPlan.PUT("edit", apiHandler.EditMonthlyPlan)
 		}
 		rAPIDailyKpt := rAPI.Group("/daily_kpt")
 		{
 			rAPIDailyKpt.GET("", apiHandler.GetDailyKpts)
 			rAPIDailyKpt.POST("add", apiHandler.PostDailyKpt)
+			rAPIDailyKpt.PUT("edit", apiHandler.EditDailyKpt)
 			rAPIDailyKpt.PUT("good", apiHandler.IncreaseGood)
 			rAPIDailyKpt.PUT("fight", apiHandler.IncreaseFight)
 		}
