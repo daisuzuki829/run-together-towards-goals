@@ -9,25 +9,26 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
+// User ...
 type User struct {
-	Id       string `json:"id"`
+	ID       string `json:"id"`
 	Nickname string `json:"nickname"`
 	Password string `json:"password"`
 	Role     string `json:"role"`
 }
 
-// GetUser...
+// GetUser ...
 func (h *Handler) GetUser(c *gin.Context) {
 	r := models.NewUserRepository()
-	userId, _ := strconv.Atoi(c.DefaultQuery("id", "0"))
-	user := r.GetOne(userId)
+	userID, _ := strconv.Atoi(c.DefaultQuery("id", "0"))
+	user := r.GetOne(userID)
 
 	c.JSON(http.StatusOK, gin.H{
 		"user": user,
 	})
 }
 
-// AddUser...
+// AddUser ...
 func (h *Handler) AddUser(c *gin.Context) {
 	var apiUser User
 	_ = c.BindJSON(&apiUser)
@@ -55,12 +56,12 @@ func (h *Handler) AddUser(c *gin.Context) {
 	})
 }
 
-// EditUser...
+// EditUser ...
 func (h *Handler) EditUser(c *gin.Context) {
 	var beforeUser User
 	c.BindJSON(&beforeUser)
 
-	id, _ := strconv.Atoi(beforeUser.Id)
+	id, _ := strconv.Atoi(beforeUser.ID)
 	r := models.NewUserRepository()
 	user := r.GetOne(id)
 
