@@ -9,6 +9,7 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
+// Goal ...
 type Goal struct {
 	gorm.Model
 	UserID   string `json:"user_id"`
@@ -16,7 +17,7 @@ type Goal struct {
 	GoalName string `json:"goal_name"`
 }
 
-// PostDailyKpt...
+// SetMyGoal ...
 func (h *Handler) SetMyGoal(c *gin.Context) {
 	var apiMyGoal Goal
 	_ = c.BindJSON(&apiMyGoal)
@@ -34,13 +35,13 @@ func (h *Handler) SetMyGoal(c *gin.Context) {
 	})
 }
 
-// EditMyGoal...
+// EditMyGoal ...
 func (h *Handler) EditMyGoal(c *gin.Context) {
 	r := models.NewGoalRepository()
 
 	id := c.DefaultQuery("id", "0")
-	myGoalId, _ := strconv.Atoi(id)
-	newMyGoal := r.GetOne(myGoalId)
+	myGoalID, _ := strconv.Atoi(id)
+	newMyGoal := r.GetOne(myGoalID)
 
 	if newMyGoal.ID == 0 {
 		c.JSON(http.StatusNotFound, gin.H{
