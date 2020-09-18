@@ -12,9 +12,10 @@ import (
 // Goal ...
 type Goal struct {
 	gorm.Model
-	UserID   string `json:"user_id"`
-	GenreID  string `json:"genre_id"`
-	GoalName string `json:"goal_name"`
+	UserID      string `json:"user_id"`
+	GenreID     string `json:"genre_id"`
+	GoalName    string `json:"goal_name"`
+	DisplayFlag string `json:"display_flag"`
 }
 
 // SetMyGoal ...
@@ -26,6 +27,7 @@ func (h *Handler) SetMyGoal(c *gin.Context) {
 	r.UserID, _ = strconv.Atoi(apiMyGoal.UserID)
 	r.GenreID, _ = strconv.Atoi(apiMyGoal.GenreID)
 	r.GoalName = apiMyGoal.GoalName
+	r.DisplayFlag, _ = strconv.Atoi(apiMyGoal.DisplayFlag)
 	r.Add(&r)
 
 	c.JSON(http.StatusOK, gin.H{
@@ -54,11 +56,11 @@ func (h *Handler) EditMyGoal(c *gin.Context) {
 	var goal Goal
 	_ = c.BindJSON(&goal)
 
-	newMyGoal.GoalName = goal.GoalName
 	newMyGoal.GenreID, _ = strconv.Atoi(goal.GenreID)
+	newMyGoal.GoalName = goal.GoalName
+	newMyGoal.DisplayFlag, _ = strconv.Atoi(goal.DisplayFlag)
 
 	r.Edit(newMyGoal)
-
 	c.JSON(http.StatusOK, gin.H{
 		"code": http.StatusOK,
 		"msg":  "Created",
