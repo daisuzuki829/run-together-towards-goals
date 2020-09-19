@@ -11,10 +11,18 @@ import (
 
 // User ...
 type User struct {
-	ID       string `json:"id"`
-	Nickname string `json:"nickname"`
-	Password string `json:"password"`
-	Role     string `json:"role"`
+	ID             string `json:"id"`
+	Nickname       string `json:"nickname"`
+	Password       string `json:"password"`
+	Age            string `json:"age"`
+	AgeDisplayFlag string `json:"age_display_flag"`
+	Address        string `json:"address"`
+	BirthPlace     string `json:"birth_place"`
+	Hobby          string `json:"hobby"`
+	Occupation     string `json:"occupation"`
+	StrongPoint    string `json:"strong_point"`
+	Skill          string `json:"skill"`
+	Role           string `json:"role"`
 }
 
 // GetUser ...
@@ -36,7 +44,15 @@ func (h *Handler) AddUser(c *gin.Context) {
 	var user models.User
 	user.Nickname = apiUser.Nickname
 	user.Password = apiUser.Password
-	user.Role,_ = strconv.Atoi(apiUser.Role)
+	user.Age = apiUser.Age
+	user.AgeDisplayFlag, _ = strconv.Atoi(apiUser.AgeDisplayFlag)
+	user.Address = apiUser.Address
+	user.BirthPlace = apiUser.BirthPlace
+	user.Hobby = apiUser.Hobby
+	user.Occupation = apiUser.Occupation
+	user.StrongPoint = apiUser.StrongPoint
+	user.Skill = apiUser.Skill
+	user.Role, _ = strconv.Atoi(apiUser.Role)
 
 	r := models.NewUserRepository()
 	err := r.Add(&user)
@@ -70,6 +86,14 @@ func (h *Handler) EditUser(c *gin.Context) {
 		password, _ := bcrypt.GenerateFromPassword([]byte(beforeUser.Password), bcrypt.DefaultCost)
 		user.Password = string(password)
 	}
+	user.Age = beforeUser.Age
+	user.AgeDisplayFlag, _ = strconv.Atoi(beforeUser.AgeDisplayFlag)
+	user.Address = beforeUser.Address
+	user.BirthPlace = beforeUser.BirthPlace
+	user.Hobby = beforeUser.Hobby
+	user.Occupation = beforeUser.Occupation
+	user.StrongPoint = beforeUser.StrongPoint
+	user.Skill = beforeUser.Skill
 
 	err := r.Edit(user)
 	if err != nil {
