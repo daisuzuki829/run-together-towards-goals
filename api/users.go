@@ -111,3 +111,16 @@ func (h *Handler) EditUser(c *gin.Context) {
 		"id":   user.ID,
 	})
 }
+
+// DeletetUser ...
+func (h *Handler) DeletetUser(c *gin.Context) {
+	userID, _ := strconv.Atoi(c.DefaultQuery("id", "0"))
+	r := models.NewUserRepository()
+
+	r.Delete(userID)
+	c.JSON(http.StatusOK, gin.H{
+		"code": http.StatusOK,
+		"msg":  "Update",
+		"id":   userID,
+	})
+}
