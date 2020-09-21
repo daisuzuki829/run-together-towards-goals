@@ -142,6 +142,7 @@ func Handler(dbConn *gorm.DB) {
 			rMonthlyPlan.GET("", apiHandler.GetMonthlyPlan)
 			rMonthlyPlan.POST("add", apiHandler.AddMonthlyPlan)
 			rMonthlyPlan.PUT("edit", apiHandler.EditMonthlyPlan)
+			rMonthlyPlan.DELETE("delete", apiHandler.DeletetMonthlyPlan)
 		}
 		rAPIDailyKpt := rAPI.Group("/daily_kpt")
 		{
