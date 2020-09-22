@@ -151,6 +151,7 @@ func Handler(dbConn *gorm.DB) {
 			rAPIDailyKpt.PUT("edit", apiHandler.EditDailyKpt)
 			rAPIDailyKpt.PUT("good", apiHandler.IncreaseGood)
 			rAPIDailyKpt.PUT("fight", apiHandler.IncreaseFight)
+			rAPIDailyKpt.DELETE("delete", apiHandler.DeletetDailyKpt)
 		}
 		rAPIMyGoal := rAPI.Group("/my_goals")
 		{

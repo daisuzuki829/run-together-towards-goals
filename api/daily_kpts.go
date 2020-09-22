@@ -125,6 +125,19 @@ func (h *Handler) IncreaseFight(c *gin.Context) {
 	})
 }
 
+// DeletetDailyKpt ...
+func (h *Handler) DeletetDailyKpt(c *gin.Context) {
+	id, _ := strconv.Atoi(c.DefaultQuery("id", "0"))
+	r := models.NewDailyKptRepository()
+
+	r.Delete(id)
+	c.JSON(http.StatusOK, gin.H{
+		"code": http.StatusOK,
+		"msg":  "Update",
+		"id":   id,
+	})
+}
+
 // GetHello ...
 func GetHello(userName string) string {
 	return "Hello, " + userName + "!!"
