@@ -157,6 +157,7 @@ func Handler(dbConn *gorm.DB) {
 		{
 			rAPIMyGoal.POST("add", apiHandler.SetMyGoal)
 			rAPIMyGoal.PUT("edit", apiHandler.EditMyGoal)
+			rAPIMyGoal.DELETE("delete", apiHandler.DeletetMyGoal)
 		}
 	}
 

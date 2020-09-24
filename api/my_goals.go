@@ -67,3 +67,16 @@ func (h *Handler) EditMyGoal(c *gin.Context) {
 		"id":   newMyGoal.ID,
 	})
 }
+
+// DeletetMyGoal ...
+func (h *Handler) DeletetMyGoal(c *gin.Context) {
+	id, _ := strconv.Atoi(c.DefaultQuery("id", "0"))
+	r := models.NewGoalRepository()
+
+	r.Delete(id)
+	c.JSON(http.StatusOK, gin.H{
+		"code": http.StatusOK,
+		"msg":  "Update",
+		"id":   id,
+	})
+}
