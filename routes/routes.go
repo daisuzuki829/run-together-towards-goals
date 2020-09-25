@@ -159,6 +159,10 @@ func Handler(dbConn *gorm.DB) {
 			rAPIMyGoal.PUT("edit", apiHandler.EditMyGoal)
 			rAPIMyGoal.DELETE("delete", apiHandler.DeletetMyGoal)
 		}
+		rTodo := rAPI.Group("/todo")
+		{
+			rTodo.GET("", apiHandler.GetTodoList)
+		}
 	}
 
 	port := os.Getenv("PORT")
