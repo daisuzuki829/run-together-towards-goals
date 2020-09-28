@@ -162,6 +162,7 @@ func Handler(dbConn *gorm.DB) {
 		rTodo := rAPI.Group("/todo")
 		{
 			rTodo.GET("", apiHandler.GetTodoList)
+			rTodo.POST("add", apiHandler.AddTodoList)
 		}
 	}
 

@@ -3,6 +3,7 @@ package api
 import (
 	"net/http"
 	"strconv"
+	"time"
 
 	"github.com/gin-gonic/gin"
 	"github.com/hariNEzuMI928/run-together-towards-goals/models"
@@ -25,5 +26,26 @@ func (h *Handler) GetTodoList(c *gin.Context) {
 
 	c.JSON(http.StatusOK, gin.H{
 		"monthly_plan": monthlyPlan,
+	})
+}
+
+// AddTodoList ...
+func (h *Handler) AddTodoList(c *gin.Context) {
+	var apiTodoList TodoList
+	_ = c.BindJSON(&apiTodoList)
+
+	r := models.NewTodoListRepository()
+	r.GoalID, _ = strconv.Atoi(apiTodoList.GoalID)
+	r.RequiredElements = apiTodoList.RequiredElements
+	r.RequiredElements = apiTodoList.RequiredElements
+	r.Todo = apiTodoList.Todo
+	r.SpecificGoal = apiTodoList.SpecificGoal
+	r.LimitDate, _ = time.Parse("2006-01-02", apiTodoList.LimitDate)
+	r.Add(&r)
+
+	c.JSON(http.StatusOK, gin.H{
+		"code": http.StatusOK,
+		"msg":  "Created",
+		"id":   r.ID,
 	})
 }
