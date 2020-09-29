@@ -164,6 +164,7 @@ func Handler(dbConn *gorm.DB) {
 			rTodo.GET("", apiHandler.GetTodoList)
 			rTodo.POST("add", apiHandler.AddTodoList)
 			rTodo.PUT("edit", apiHandler.EditTodoList)
+			rTodo.DELETE("delete", apiHandler.DeletetTodoList)
 		}
 	}
 

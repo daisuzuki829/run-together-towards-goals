@@ -81,3 +81,16 @@ func (h *Handler) EditTodoList(c *gin.Context) {
 		"id":   todoList.ID,
 	})
 }
+
+// DeletetTodoList ...
+func (h *Handler) DeletetTodoList(c *gin.Context) {
+	id, _ := strconv.Atoi(c.DefaultQuery("id", "0"))
+	r := models.NewTodoListRepository()
+
+	r.Delete(id)
+	c.JSON(http.StatusOK, gin.H{
+		"code": http.StatusOK,
+		"msg":  "Update",
+		"id":   id,
+	})
+}
