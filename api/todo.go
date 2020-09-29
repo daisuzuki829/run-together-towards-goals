@@ -49,3 +49,35 @@ func (h *Handler) AddTodoList(c *gin.Context) {
 		"id":   r.ID,
 	})
 }
+
+// EditTodoList ...
+func (h *Handler) EditTodoList(c *gin.Context) {
+	r := models.NewTodoListRepository()
+
+	id, _ := strconv.Atoi(c.DefaultQuery("id", "0"))
+	todoList := r.GetOne(id)
+	if todoList.ID == 0 {
+		c.JSON(http.StatusNotFound, gin.H{
+			"code": http.StatusNotFound,
+			"msg":  "Not Found",
+		})
+		return
+	}
+
+	var apiTodoList TodoList
+	c.BindJSON(&apiTodoList)
+
+	todoList.GoalID, _ = strconv.Atoi(apiTodoList.GoalID)
+	todoList.RequiredElements = apiTodoList.RequiredElements
+	todoList.RequiredElements = apiTodoList.RequiredElements
+	todoList.Todo = apiTodoList.Todo
+	todoList.SpecificGoal = apiTodoList.SpecificGoal
+	todoList.LimitDate, _ = time.Parse("2006-01-02", apiTodoList.LimitDate)
+
+	r.Edit(todoList)
+	c.JSON(http.StatusOK, gin.H{
+		"code": http.StatusOK,
+		"msg":  "Created",
+		"id":   todoList.ID,
+	})
+}
