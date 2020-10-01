@@ -18,6 +18,15 @@ type Goal struct {
 	DisplayFlag string `json:"display_flag"`
 }
 
+// GetMyGoal ...
+func (h *Handler) GetMyGoal(c *gin.Context) {
+	r := models.NewGoalRepository()
+
+	c.JSON(http.StatusOK, gin.H{
+		"daily_kpts": r.GetAll(),
+	})
+}
+
 // SetMyGoal ...
 func (h *Handler) SetMyGoal(c *gin.Context) {
 	var apiMyGoal Goal
