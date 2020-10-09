@@ -1,3 +1,8 @@
+/* 全体背景色をライトネプチューン系に */
+body{
+    background-color: rgb(207,205,223);
+}
+
 table{
     width: 100%;
     white-space: pre-line;
@@ -17,24 +22,26 @@ table th:last-child{
 table th{
     text-align: center;
     color:white;
-    background: linear-gradient(#829ebc,#225588);
-    border-left: 1px solid #3c6690;
-    border-top: 1px solid #3c6690;
-    border-bottom: 1px solid #3c6690;
+    background: rgb(62,58,58);
+    border-left: 1px solid #000000;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
     box-shadow: 0 1px 1px rgba(255,255,255,0.3) inset;
     padding: 10px 0;
 }
 
 table td{
-    border-left: 1px solid #a8b7c5;
-    border-bottom: 1px solid #a8b7c5;
+    border-left: 1px solid #000000;
+    border-bottom: 1.5px solid #000000;
     border-top:none;
-    box-shadow: 0 -3px 5px 1px #eee inset;
     padding: 10px 0;
+    /* background-color: rgb(187, 196, 202); 
+    これを消さないとテーブル偶数だけ色変更は実現しない*/
+    
 }
 
 table td:last-child{
-    border-right: 1px solid #a8b7c5;
+    border-right: 1px solid #000000;
 }
 
 table tr:last-child td:first-child {
@@ -43,4 +50,14 @@ table tr:last-child td:first-child {
 
 table tr:last-child td:last-child {
     border-radius: 0 0 5px 0;
+}
+
+/* テーブル　偶数行で色変更 */
+table tr:nth-child(odd) {
+    background-color: rgb(187, 196, 202);
+}
+
+/* テーブル奇数行で色変更 */
+table tr:nth-child(even) {
+    background-color: rgb(221, 232, 238);
 }
