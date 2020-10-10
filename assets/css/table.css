@@ -1,7 +1,42 @@
-/* 全体背景色をライトネプチューン系に */
-body{
-    background-color: rgb(207,205,223);
+/* ＜テキスト変更＞　位置変更*/
+.mgr-100{
+    margin-right: 100px;
 }
+
+.mgr-50{
+    margin-right: 50px;
+}
+
+.mgl-40{
+    margin-left:40px;
+}
+
+.mgl-30{
+    margin-left:30px;
+}
+
+.mgl-20{
+    margin-left:20px;
+}
+
+.mgl-10{
+    margin-left:10px;
+}
+
+/* ＜テキスト変更＞*/
+h2 h3{
+    font-family: ヒラギノ角ゴ ProN W3;
+}
+
+/* ＜テキスト変更＞　h２行頭にアイコン付加 */
+li{
+    list-style: none;
+}
+/* ＜テキスト変更＞　アイコンカラー変更 */
+.mycolor-navy{
+    color:rgba(14, 28, 90, 0.993);
+}
+
 
 table{
     width: 100%;
@@ -20,10 +55,11 @@ table th:last-child{
 }
 
 table th{
+    font-family: Kaiti SC;
     text-align: center;
-    color:white;
+    color:rgb(221, 232, 238);
     background: rgb(62,58,58);
-    border-left: 1px solid #000000;
+    border-left: 1px solid #777474;
     border-top: 1px solid #000000;
     border-bottom: 1px solid #000000;
     box-shadow: 0 1px 1px rgba(255,255,255,0.3) inset;
@@ -34,10 +70,7 @@ table td{
     border-left: 1px solid #000000;
     border-bottom: 1.5px solid #000000;
     border-top:none;
-    padding: 10px 0;
-    /* background-color: rgb(187, 196, 202); 
-    これを消さないとテーブル偶数だけ色変更は実現しない*/
-    
+    padding: 10px 0;   
 }
 
 table td:last-child{
@@ -52,12 +85,25 @@ table tr:last-child td:last-child {
     border-radius: 0 0 5px 0;
 }
 
-/* テーブル　偶数行で色変更 */
+
+
+/* ＜table配色変更＞　全体背景色をライトネプチューン系 */
+body{
+    background-color: rgb(207,205,223);
+}
+
+/* ＜table配色変更＞　テーブル偶数行：濃ブルーグレー */
 table tr:nth-child(odd) {
     background-color: rgb(187, 196, 202);
 }
 
-/* テーブル奇数行で色変更 */
+/* ＜table配色変更＞　テーブル奇数行：薄ブルーグレー */
 table tr:nth-child(even) {
     background-color: rgb(221, 232, 238);
 }
+
+/* <tabletテキスト変更＞ hr（５W１Hのフォント変更） */
+.en-font{
+    font-family: Andale Mono;
+    font-size:20px;
+} 
