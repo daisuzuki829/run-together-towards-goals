@@ -3,11 +3,7 @@ body{
 }
 
 .cp_navi {
-<<<<<<< HEAD
-    background-color: #ffffff;
-=======
     background-color: rgb( 62, 58, 58 );
->>>>>>> 2d33499... Change:bg-color/header.html/menu.css/body:purplegray nav:black hover:gray
     border: 1px solid #dedede;
     border-radius: 4px;
     box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
