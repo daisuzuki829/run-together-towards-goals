@@ -1,5 +1,9 @@
+body{
+    background-color: rgb( 207, 205, 223 );
+}
+
 .cp_navi {
-    background-color: #ffffff;
+    background-color: rgb( 62, 58, 58 );
     border: 1px solid #dedede;
     border-radius: 4px;
     box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
@@ -39,16 +43,16 @@
     text-decoration: none;
 }
 .cp_navi > ul > li:hover {
-    background-color: rgb(239, 112, 117);
+    background-color: rgb(154, 162, 167);
 }
 .cp_navi > ul > li:hover > a {
-    color: rgb( 255, 255, 255 );
+    color: rgb( 62, 58, 58 );
 }
 .cp_navi > ul > li:hover > a > .caret {
     border-top-color: rgb( 255, 255, 255 );
 }
 .cp_navi > ul > li > div {
-    background-color: rgb(239, 112, 117);
+    background-color: rgb(154, 162, 167);
     border-top: 0;
     border-radius: 0 0 4px 4px;
     box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
@@ -70,7 +74,7 @@
     display: block;
 }
 .cp_navi > ul > li > div ul > li > a {
-    color: #ffffff;
+    color: rgb( 62, 58, 58 );
     display: block;
     padding: 12px 24px;
     text-decoration: none;
