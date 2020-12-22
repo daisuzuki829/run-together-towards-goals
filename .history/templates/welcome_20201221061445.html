@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+     <!-- メディアクエリー有効化のためにwelcomeページにもビューポートの記述が必要 -->
+     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+     <!-- スマホ画面サイズに合わせてページを表示させる -->
+     <meta name="viewport"
+         content="width=320,
+             height=480,
+             initial-scale=1.0,
+             minimum-scale=1.0,
+             maximum-scale=2.0,
+             user-scalable=yes" />
+    <!-- ipad用 -->
+    <!-- <meta name=viewport content="width=device-width"> -->
+    <title>Welcome</title>
+    <link href="../assets/css/table.css" rel="stylesheet">
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- bootstrap　CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
+</head>
+
+<body>
+    {{ template "header" }}
+
+    welcome
+    {{if .user }}
+    , {{.user.Nickname}}
+    {{end}}
+    !
+
+<!-- フレキシブルレイアウト BOX3　BOX４　BOX５-->
+<div class="box3"><img src="/Users/pupil10/Desktop/run-together-towards-goals/1.png" alt="canva" class="topimg pc_img"></div>
+<!-- <div class="box3"><img src="/Users/pupil10/Desktop/run-together-towards-goals/1921311_m.jpg .jpg" alt="canva" class="topimg sp_non"></div> -->
+<div class="box3"><img src="/Users/pupil10/Desktop/run-together-towards-goals/2sp.png" alt="canva_sp" class="topimg sp_img"></div>
+
+<div class="box4"><!-- アプリの使い方 -->
+    <div class="box4-1 app">
+        <h3 align="center" class="sp_mgl20 mgl20"><i class="fa fa-hand-o-right fa-lg icon mgr10 mgl10" aria-hidden="true"></i>アプリの使い方</h3>     
+        <ol>
+            <li><h5 align="center">会員登録</h5></li>
+            <li><a href="/user/my_page">Users>MyPage</a>から<br class="setting_br"><i class="fa fa-arrow-right" aria-hidden="true"></i>下記設定
+                 <ul>
+                    <li><i class="fa fa-check-circle fa-lg mgr10" aria-hidden="true"></i>My Profile<br class="setting_br">（自己紹介)</li>
+                    <li><i class="fa fa-check-circle fa-lg mgr10" aria-hidden="true"></i>Goal(目標)<br class="setting_br">：複数可能</li>
+                    <li><span class="mgr50"><i class="fa fa-check-circle fa-lg mgr10" aria-hidden="true"></i><span>Todo</span><span class="mgl50"><br class="month">：複数可能</span></span></li>
+                </ul>
+            </li> 
+            <br>
+            <li><a href="_monthly_plans">Monthly Plan</a>にて<br class="month_br"><span class="mgl20"><i class="fa fa-arrow-right" aria-hidden="true"></i></span>月次目標設定</li>
+            <li><a href="_daily_kpts">Daily Kpt</a>にて<br class="month_br"><span class="mgl20"></span><i class="fa fa-arrow-right sp_mgl27" aria-hidden="true"></i></span>日々の振返り</li>
+        </ol>
+　　　</div>
+
+    <div class="box4-1"><!-- 目標達成のためにー目標の立て方 -->
+        <h3 align="center" class="sp_mgl20"><i class="fa fa-hand-o-right fa-lg icon mgl20" aria-hidden="true" ></i><span class="mgl-10">目標達成のため</span></h3>
+        <h5 align="center">目標の立て方</h5>
+        <ul>
+            <li><i class="fa fa-arrow-circle-down fa-lg mgr10"  aria-hidden="true"></i>課題の洗い出し</li>
+            <li><i class="fa fa-arrow-circle-down fa-lg mgr10" aria-hidden="true"></i>ステップ形式に。(細分化)</li>
+            <li><i class="fa fa-arrow-circle-down fa-lg mgr10" aria-hidden="true"></i>現実的<br class="setting_br">・具体的<br class="setting_br">・明確的に</li>
+            <li><i class="fa fa-arrow-circle-down fa-lg mgr10" aria-hidden="true"></i>達成度が定量評価できる目標に。　</li>
+            <li><i class="fa fa-arrow-circle-down fa-lg mgr10" aria-hidden="true"></i>期限の設定</li>
+        </ul>    
+    </div>
+
+    <div class="box4-1"><!-- 目標達成のためにー目標を立てたあと -->
+        <h3 align="center" class="sp_mgl20 sp_non"><i class="fa fa-hand-o-right fa-lg icon mgl20" aria-hidden="true" ></i><span class="mgl-10 sp_non">目標達成のため</span></h3>
+        <h5 align="center" class="mgt41">目標を立てたあと</h5>
+        <ul>
+            <li><i class="fa fa-arrow-circle-down fa-lg mgr10" aria-hidden="true"></i><span class="mgl-10"></span>共有ー自分を鼓舞<div class=""></div></span></li>
+            <li><i class="fa fa-arrow-circle-down fa-lg mgr10" aria-hidden="true"></i><span class="mgl-10"></span>行動</span></li>
+            <li><i class="fa fa-arrow-circle-down fa-lg mgr10" aria-hidden="true"></i><span class="mgl-10"></span>記録</span></li>
+            <li><i class="fa fa-arrow-circle-down fa-lg mgr10" aria-hidden="true"></i><span class="mgl-10"></span>振返り</span></li>
+            <li><i class="fa fa-arrow-circle-down fa-lg mgr10" aria-hidden="true"></i><span class="mgl-10"></span>ご褒美</span></li>
+            <li><i class="fa fa-arrow-circle-down fa-lg mgr10" aria-hidden="true"></i><span class="mgl-10"></span>達成時のメリットを可視化</span></li>
+        </ul>
+    </div>
+        
+    <div class="box4-1"><!-- ご意見フォーム -->
+        <h3 align="center" class="sp_mgl20">
+            <i class="fa fa-hand-o-right fa-lg icon mgl20" aria-hidden="true"></i>
+            <span class="mgl-10">ご意見フォーム</span>
+        </h3>
+　　　　　　　 <a href="https://docs.google.com/forms/d/1_eKw5lRw_igPTVTgL5uXnBJL6oLvpbPqIi54_0c0lOo/edit"class="mgl-10">
+             Google Form
+        </a>
+    </div>
+</div>           
+
+<div class="box5">
+
+<!-- スマホ表示用テーブル -->
+    <table class="sp_table">
+        <tr><th colspan="6">現　在</th></tr>
+        <tr>
+            <td class="sp_pdl10"><span class="en-font">what</span></td>
+            <td colspan="5" class="sp_pdl10">今どんな運動をしている？</td>
+        </tr> 
+        <tr>
+            <td class="sp_pdl10"><span class="en-font">where</span></td>
+            <td colspan="5" class="sp_pdl10">　今どこで運動してる？</td>
+        </tr>
+        <tr>
+            <td class="sp_pdl10"><span class="en-font"> which</span></td>
+            <td colspan="5" class="sp_pdl10">　どちらがいい？
+                  　有酸素運動　/　無酸素運動</td>
+        </tr>
+        <tr>
+            <td class="sp_pdl10"><span class="en-font">who</span></td>
+            <td colspan="5" class="sp_pdl10">　今誰と運動してる？</td>
+        </tr>
+        <tr>
+            <td class="sp_pdl10"><span class="en-font">how</span></td>
+            <td colspan="5" class="sp_pdl10">　今どうやって運動してる？</td>
+        </tr>
+　　　
+        <tr>
+            <th colspan="6" class="sp_mgr50">過　去</th>
+        </tr>
+        <tr>
+            <td class="sp_pdl10"><span class="en-font">what</span></td>
+            <td colspan="5" class="sp_pdl10">過去どんな運動を？</td>
+        </tr> 
+        <tr>
+            <td class="sp_pdl10"><span class="en-font">where </span></td>
+            <td colspan="5" class="sp_pdl10">過去どこで？</td>
+        </tr>
+        <tr>
+            <td class="sp_pdl10"><span class="en-font">which </span></td>
+            <td colspan="5" class="sp_pdl10">どちらが好きだった？
+                  有酸素　/　無酸素運動</td>
+        </tr>　　　
+        <tr><th colspan="6">可　能</th></tr>
+        <tr>
+            <td class="sp_pdl10">物<span class="en-font">what</span></td>
+            <td colspan="5" class="sp_pdl10">どんな運動が可能？</td>
+        </tr> 
+        <tr>　
+            <td class="sp_pdl10"><span class="en-font">where </span></td>
+            <td colspan="5" class="sp_pdl10">他にどこで出来る？</td>
+        </tr>
+        <tr>
+            <td class="sp_pdl10"><span class="en-font">which　</span></td>
+            <td colspan="5" class="sp_pdl10">どちらが続けやすい？
+                  有酸素　/　無酸素運動</td>
+        </tr>
+        <tr>
+            <td class="sp_pdl10"><span class="en-font">who</span></td>
+            <td colspan="5" class="sp_pdl10">誰と出来る？</td>
+        </tr>
+        <tr>
+            <td class="sp_pdl10"><span class="en-font">how</span></td>
+            <td colspan="5" class="sp_pdl10">今どうやって出来る？</td>
+        </tr>
+        
+        <tr><th colspan="6">推　量</th></tr>
+        <tr>
+            <td class="sp_pdl10"><span class="en-font">what</span></td>
+            <td colspan="5" class="sp_pdl10">どんな運動をすべき？</td>
+        </tr> 
+        <tr>
+            <td class="sp_pdl10"><span class="en-font">where　</span></td>
+            <td colspan="5" class="sp_pdl10">どこですべき？</td>
+        </tr>
+        <tr>
+            <td class="sp_pdl10"><span class="en-font">which　</span></td>
+            <td colspan="5" class="sp_pdl10">どちらをすべき？
+                  有酸素　/　無酸素運動</td>
+        </tr>
+        <tr>
+            <td class="sp_pdl10"><span class="en-font">who</span></td>
+            <td colspan="5" class="sp_pdl10">誰とすべき？</td>
+        </tr>
+        <tr>
+            <td class="sp_pdl10"><span class="en-font">how</span></td>
+            <td colspan="5" class="sp_pdl10">どうやってすべき？</td>
+        </tr>
+
+        
+        <tr><th colspan="6">未　来</th></tr>
+        <tr>
+            <td class="sp_pdl10"><span class="en-font">what</span></td>
+            <td colspan="5" class="sp_pdl10">どんな運動が面白そう？</td>
+        </tr> 
+        <tr>
+            <td class="sp_pdl10"><span class="en-font">where　</span></td>
+            <td colspan="5" class="sp_pdl10">どこで出来そう？</td>
+        </tr>
+
+        <tr>
+            <td class="sp_pdl10"><span class="en-font">which　</span></td>
+            <td colspan="5" class="sp_pdl10">今後の健康の為にどちらがいい？
+            有酸素　/　無酸素運動</td>
+        </tr>
+        <tr>
+            <td class="sp_pdl10"><span class="en-font">who</span></td>
+            <td colspan="5" class="sp_pdl10">誰としたい？</td>
+        </tr>
+        <tr>
+            <td class="sp_pdl10"><span class="en-font">how</span></td>
+            <td colspan="5" class="sp_pdl10">どうやってしたい？</td>
+        </tr>
+        
+        <tr><th colspan="6">想　像</th></tr>
+        <tr>
+            <td class="sp_pdl10"><span class="en-font">what</span></td>
+            <td colspan="5" class="sp_pdl10">どんな運動が面白そう？</td>
+        </tr> 
+        <tr>
+            <td class="sp_pdl10"><span class="en-font">where　</span></td>
+            <td colspan="5" class="sp_pdl10">どこで出来そう？</td>
+        </tr>
+        <tr>
+            <td class="sp_pdl10"><span class="en-font">which　</span></td>
+            <td colspan="5" class="sp_pdl10">どちらかがデメリットを及ぼす恐れは？　有酸素　/　無酸素運動</td>
+        </tr>
+        <tr>
+            <td class="sp_pdl10"><span class="en-font">who</span></td>
+            <td colspan="5" class="sp_pdl10">一緒にしてくれる人を探すには？</td>
+        </tr>
+        <tr>
+            <td class="sp_pdl10"><span class="en-font">how</span></td>
+            <td colspan="5" class="sp_pdl10">良いやり方を教わるには？</td>
+        </tr>
+    </table>
+
+    <!-- pc表示用テーブル -->
+    <table class="pc_table">
+        <tr>
+            <th></th>
+            <th>物 <span class="en-font">what</span></th>
+            <th>環境 <span class="en-font">when/where</span></th>
+            <th>選択 <span class="en-font">which</span></th>
+            <th>人 <span class="en-font">who</span></th>
+            <th>方法 <span class="en-font">how</span></th>
+        </tr>
+        <tr>
+            <td>　現在<span class="mgl10"> is/does</span></td>
+            <td>　今どんな運動を
+                　している？</td>
+            <td>　今どこで
+                　運動してる？</td>
+            <td>　どちらがいい？　
+                　有酸素運動　/　無酸素運動</td>
+            <td>　今誰と
+                　運動している？</td>
+            <td>　今どうやって、
+                　運動している？</td>
+        </tr>
+        <tr>
+            <td>　過去 <span class="mgl10">was/did</span>
+            <td>　過去どんな運動を？</td>
+            <td>　過去どこで？</td>
+            <td>　どちらが好きだった？</td>
+            <td>　過去誰と？</td>
+            <td>　過去どうやって？</td>
+        </tr>
+        <tr>
+            <td>　可能 <span class="mgl10">can</span></td>
+            <td>　どんな運動が可能？</td>
+            <td>　他にどこで
+                　出来る？</td>
+            <td>　どちらが続けやすい？</td>
+            <td>　誰と出来る？</td>
+            <td>　どうやって、出来る？</td>
+        </tr>
+        <tr>
+            <td>　推量 should/would</td>
+            <td>　どんな運動をすべき？</td>
+            <td>　どこですべき？</td>
+            <td>　どちらをやるべき？</td>
+            <td>　誰とすべき？</td>
+            <td>　どうやって、すべき？</td>
+        </tr>
+        <tr>
+            <td>　未来 <span class="mgl10">will</span></td>
+            <td>　どんな運動を
+                　してみたい？</td>
+            <td>　どこでしたい？</td>
+            <td>　今後の健康の為にどちらがいい？</td>
+            <td>　誰としたい？</td>
+            <td>　どうやって、したい？</td>
+        </tr>
+        <tr>
+            <td>　想像　might</td>
+            <td>　どんな運動が面白そう？</td>
+            <td>　どこで出来そう？</td>
+            <td>　どちらかが
+                　デメリットを及ぼす恐れは？<br></td>
+            <td>　一緒にしてくれる人を<br>　探すには？</td>
+            <td>　良いやり方を教わるには？</td>
+        </tr>
+    </table>
+
+    <!-- ipad表示用テーブル -->
+    <table class="ipd_table">
+        <tr>
+            <th></th>
+            <th>物 <span class="en-font">what</span></th>
+            <th>環境 <span class="en-font">when/where</span></th>
+            <th>選択 <span class="en-font">which</span></th>
+            <th>人 <span class="en-font">who</span></th>
+            <th>方法 <span class="en-font">how</span></th>
+        </tr>
+        <tr>
+            <td>　現在<span class="mgl10">is/does</span></td>
+            <td>　今どんな
+                　運動してる？</td>
+            <td>　今どこで
+                　運動してる？</td>
+            <td>　どちらがいい？　
+                　有酸素/無酸素運動</td>
+            <td>　今誰と
+                　してる？</td>
+            <td>　今どうやって
+                　運動してる？</td>
+        </tr>
+        <tr>
+            <td>　過去 <span class="mgl10">was/did</span>
+            <td>　過去どんな
+                　運動を？</td>
+            <td>　過去どこで</td>
+            <td>　どちらが好きだった
+            </td>
+            <td>　過去誰と</td>
+            <td>　過去
+                　どうやって</td>
+        </tr>
+        <tr>
+            <td>　可能 
+                　can</td>
+            <td>　どんな運動が
+                　可能？</td>
+            <td>　他にどこで
+                　出来る</td>
+            <td>　どちらが続けやすい</td>
+            <td>　誰と出来る</td>
+            <td>　どうやって
+                　出来る</td>
+        </tr>
+        <tr>
+            <td>　推量 should/would</td>
+            <td>　どんな運動を
+                　すべき？</td>
+            <td>　どこですべき</td>
+            <td>　どちらをやるべき</td>
+            <td>　誰とすべき</td>
+            <td>　どうやって
+                　すべき</td>
+        </tr>
+        <tr>
+            <td>　未来 
+                　will</td>
+            <td>　どんな運動を
+                　してみたい？</td>
+            <td>　どこでしたい</td>
+            <td>　今後の健康の為に
+                　どちらがいい</td>
+            <td>　誰としたい</td>
+            <td>　どうやって
+                　したい</td>
+        </tr>
+        <tr>
+            <td>　想像　
+                　might</td>
+            <td>　どんな運動が面白そう？</td>
+            <td>　どこで
+                　出来そう？</td>
+            <td>　どちらかがデメリットを及ぼす恐れは？<br></td>
+            <td>　一緒にしてくれる人を探すには？</td>
+            <td>　良いやり方を教わるには？</td>
+        </tr>
+    </table>
+
+
+</div>
+
+    {{/*{{ template "footer" }}*/}}
+
+<!-- bootstrap CDN　-->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+</body>
+</html>

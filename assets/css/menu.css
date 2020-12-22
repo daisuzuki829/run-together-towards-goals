@@ -1,21 +1,85 @@
+/* 12月6日レスポンシブ組み直し  */
+
+
+.site h1 {color: #1e1e1e;
+          margin: 0;
+          font-size: 30px;}
+
+.boxA {padding-top: 15px;
+       padding-right: 30px;
+       padding-bottom: 15px;}
+
+.cp_navi ul li {display: inline-block;
+    padding: 5px;
+    list-style-type: none;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;}
+
+/* ヘッダー画像 はみ出さない*/
+.topimg {width: 100%;
+        height: auto;
+        vertical-align: bottom;
+        border: 21px solid olive;
+        box-sizing: border-box;
+}
+
+.boxA {background-color: olive;
+      padding-left: 10px;}
+
+.box1 h1{font-family: 'Franklin Gothic Medium', serif;
+    font-size: 60px;
+    position: relative;
+    overflow: hidden;
+    font-weight: bold;
+    line-height: 1;
+    color: #1e1e1e;}
+
+/* ######### 768px以上 ####### */
+
+/* box1とbox2を横に並べる */
+@media (min-width: 768px) {
+    .boxA:after {content: "";
+                 display: block;
+                 clear: both;}
+
+    .box1 {float:left;
+           width: auto;}
+
+    .box2 {float:right;
+           width: auto;}
+}
+
+
+/* ーーーーーーーーーーーーーーーーーーーー */
 body{
-    background-color: rgb( 207, 205, 223 );
+    /* background-color: rgb( 207, 205, 223 ); */
+    /* 外周の際にある隙間埋め11/20 */
+    margin: 0;
+    
+}
+
+h3{ 
+    font-family: "Sawarabi Mincho"; 
 }
 
 .cp_navi {
-    background-color: rgb( 62, 58, 58 );
-    border: 1px solid #dedede;
+    /* background-color: olive; */
+    /* background-color: rgb( 62, 58, 58 ); */
+    /* border: 1px solid #dedede; */
     border-radius: 4px;
     box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
     color: #888888;
     display: block;
-    margin: 1em 1%;
+    /* margin: 1em 1%; */
+    margin-bottom: -25px;
+    /* 「ナビバー」と「その下のヘッダー画像」との間の隙間埋め11/20 */
     overflow: hidden;
     width: 100%;
 }
 .cp_navi ul {
-    margin: 0;
+    margin: -18px;
     padding: 0;
+    text-align: right;
 }
 .cp_navi ul li {
     display: inline-block;
@@ -36,10 +100,12 @@ body{
     transition: color 0.1s linear;
 }
 .cp_navi > ul > li > a {
-    color: #aaaaaa;
+    /* ナビバー　フォント　11/27 */
+    color: black;
+    /* color: #aaaaaa; */
     display: block;
     line-height: 56px;
-    padding: 0 10px;
+    padding: 10px 15px;
     text-decoration: none;
 }
 .cp_navi > ul > li:hover {
@@ -83,6 +149,7 @@ body{
     background-color: rgba( 255, 255, 255, 0.1);
 }
 
+ /* header GOALIST 
 .type-shine {
     font-family: 'Franklin Gothic Medium', serif;
     font-size: 60px;
@@ -90,7 +157,7 @@ body{
     overflow: hidden;
     font-weight: bold;
     line-height: 1;
-    color: #1e1e1e;
+    color: #1e1e1e; */
 
 }
 .type-shine:before {
@@ -124,3 +191,33 @@ a.no-underline {
     line-height: 1;
     color: #1e1e1e;
 }
+
+/* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+　　　　767px 以下 
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝*/
+@media (max-width: 767px) {
+#menu {display: none;}/* 初期状態ではナビを非表示にしておく */
+#menubtn span {display: inline-block;/* MENUの文字を隠す */
+               text-indent: -9999;}/* 字下げで文字列を画面外へ→非表示。かつ音声ブラウザ読み上げを妨げない */
+ /* トグルボタン */
+ #menubtn i {color: #888888;     
+            font-size: 18px;}
+#menubtn {padding: 6px 12px;
+          border: solid 1px #aaaaaa;
+          border-radius: 5px;
+          background-color: ffffff;
+          position: absolute;
+          top: 44px;
+          right: 15px;
+          cursor: pointer;}
+#menubtn:hover {background-color: #dddddd;}
+#menubtn:focus {outline: none;}/* クリックすると表示される青色枠線を削除 */
+}
+/* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+　　　768px 以上 
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝*/
+@media (min-width: 768px) {
+    #menubtn {display: none;}
+    #menu{display: block;}
+}
+
